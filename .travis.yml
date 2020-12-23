@@ -1,5 +1,5 @@
 language:
-  - ruby
+  - generic
 
 services:
   - docker
@@ -7,6 +7,9 @@ services:
 before_install:
   - docker image build -t lorrenzofreemano/flasky:v1.0 .
 
-deploy:
+before_deploy:
   - docker login --username "$DOCKERUSER" --password "$DOCKERPWD" 
-  - docker image push lorrenzofreemano/flasky:v1.0
+
+deploy:
+  provider: script
+  script: docker image push lorrenzofreemano/flasky:v1.0
