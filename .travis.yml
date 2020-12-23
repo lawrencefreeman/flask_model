@@ -3,5 +3,7 @@ services:
 
 before_install:
   - docker image build -t lorrenzofreemano/flasky:v1.0 .
-  - docker container run lorrenzofreemano/flasky:v1.0
-  - docker ps
+
+deploy:
+  - docker login --username "$DOCKERUSR" --password "$DOCKERPWD" 
+  - docker image push lorrenzofreemano/flasky:v1.0
