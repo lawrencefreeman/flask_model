@@ -5,5 +5,5 @@ before_install:
   - docker image build -t lorrenzofreemano/flasky:v1.0 .
 
 deploy:
-  - docker login --username "$DOCKERUSR" --password "$DOCKERPWD" 
+  - docker login --username "$DOCKERUSER" --password "$DOCKERPWD" 
   - docker image push lorrenzofreemano/flasky:v1.0
